@@ -4,14 +4,17 @@ import mysql.connector
 app = Flask(__name__)
 
 def get_db():
-    if 'dbs' not in g:
-        g.dbs = mysql.connector.connect(
-            host="InvWeb.mysql.pythonanywhere-services.com",
-            user="InvWeb",
-            password="Contra21db",
-            database="InvWeb$ocdb"
+    try:
+        if 'dbs' not in g:
+            g.dbs = mysql.connector.connect(
+            host="Inventfk.mysql.pythonanywhere-services.com",
+            user="Inventfk",
+            password="Cuentauser21",
+            database="Inventfk$sqlent"
         )
-    return g.dbs
+        return g.dbs
+    except Exception as e:
+        return str(e)
 
 @app.teardown_appcontext
 def close_db(error):
