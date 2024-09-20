@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenidos</h1>
+        <div class="image-container">
+            <img src="https://scontent.fgua3-4.fna.fbcdn.net/v/t1.6435-9/96513015_524946208185176_1560272712813772800_n.png?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=9_viuv7HTZ0Q7kNvgFl1F7N&_nc_ht=scontent.fgua3-4.fna&oh=00_AYBMrXzn19YTrlCrec_PkiJGWN9vf7XwZjLn_SP408kN8Q&oe=6713AB67" alt="Imagen de bienvenida">
+        </div>
+        <div class="buttons">
+            <a href="{{ url_for('login') }}">Administrador</a>
+            <a href="{{ url_for('products') }}">Mostrar Productos</a>
+            <a href="{{ url_for('about') }}">Acerca de Nosotros</a>
+        </div>
+    </div>
+</body>
+</html>
