@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Producto</title>
+    <!-- Estilo del Programa  -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="number"], input[type="file"], input[type="submit"], input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #6c757d;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        a:hover {
+            background-color: #5a6268;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Es la ruta (pestaña) donde se permite editar un producto dependiendo lo que se necesite.  -->
+    <h1>Modificar Producto</h1>
+    <form action="{{ url_for('update_product', product_id=product['idProducto']) }}" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ product['nombre'] }}" required><br>
+
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" value="{{ product['codigo'] }}" required><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" value="{{ product['precio'] }}" step="0.01" required><br>
+
+        <label for="img_file">Imagen (opcional):</label>
+        <input type="file" id="img_file" name="img_file"><br>
+
+        <label for="img_url">O URL de imagen:</label>
+        <input type="text" id="img_url" name="img_url"><br>
+
+        <input type="submit" value="Actualizar Producto">
+    </form>
+
+    <a href="{{ url_for('admin_dashboard') }}">Cancelar</a>
+</body>
+</html>
